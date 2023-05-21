@@ -18,7 +18,7 @@ def get_token(key: str) -> str:
     token: str = os.getenv(key)
     if token is not None:
         return token
-    logger.error('Ошибка')
+    logger.error('Ошибка, нет токена')
     raise APIException('Не передан токен для доступа к боту.')
 
 
