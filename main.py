@@ -1,4 +1,4 @@
-"""Точка запуска бота."""
+"""Titik peluncuran bot."""
 import locale
 
 from bot_commands import start, help_command, courses, sub, unsub
