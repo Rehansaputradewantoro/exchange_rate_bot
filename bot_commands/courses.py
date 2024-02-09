@@ -1,4 +1,4 @@
-"""Получение доступных курсов валют."""
+"""Mendapatkan nilai tukar yang tersedia."""
 from datetime import datetime
 
 from configs import log_configured
@@ -11,7 +11,7 @@ logger = log_configured.getLogger(__name__)
 
 
 async def courses(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Логика команды /courses."""
+    """Klik Jika Ingin Menggunakan Perintah /courses."""
     if update.effective_chat is not None:
         resp = make_request()
 
@@ -28,7 +28,7 @@ async def courses(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
             )
         message: str = ''
         if not context.args:
-            header: str = f'Актуальный курс валют на дату: {courses_date}.'
+            header: str = f'Nilai tukar saat ini pada tanggal: {courses_date}.'
             message = (
                 f'{header}\n'
                 f'{"=" * len(header)}\n'
@@ -40,11 +40,11 @@ async def courses(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
                 if param.upper() in CURRENCIES:
                     message += f'{bot_courses[param.upper()]}'
                 else:
-                    logger.warning(f'Запрошена недопустимая валюта {param.upper()}')
+                    logger.warning(f'Mata uang yang diminta tidak valid {param.upper()}')
 
         await context.bot.send_message(
             chat_id=update.effective_chat.id,
             text=message,
         )
     else:
-        logger.warning('Не получен ID чата при запросе /courses.')
+        logger.warning('ID Obrolan tidak diterima saat meminta /courses.')
