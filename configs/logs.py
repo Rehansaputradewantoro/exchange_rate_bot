@@ -1,4 +1,4 @@
-"""Настройка логирования."""
+"""Menyiapkan pencatatan."""
 import logging as log_configured
 
 log_configured.basicConfig(
