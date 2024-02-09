@@ -1,13 +1,13 @@
-"""Кастомные классы обработки ошибок."""
+"""Kelas penanganan kesalahan khusus."""
 
 
 class APIException(Exception):
-    """Ошибки в работе API."""
+    """Kesalahan di tempat kerja API."""
 
     ...
 
 
 class ServiceException(Exception):
-    """Ошибки в работе сервиса курса валют."""
+    """Kesalahan dalam pengoperasian layanan nilai tukar."""
 
     ...
