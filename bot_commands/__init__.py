@@ -1,4 +1,4 @@
-"""Инициализатор команд бота."""
+"""Penginisialisasi perintah bot."""
 from .courses import courses
 from .help import help_command
 from .mine import sub, unsub
