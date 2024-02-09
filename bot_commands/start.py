@@ -1,4 +1,4 @@
-"""Стартовая команда бота."""
+"""Perintah memulai bot.."""
 from configs import log_configured
 from telegram import Update
 from telegram.ext import ContextTypes
@@ -7,16 +7,16 @@ logger = log_configured.getLogger(__name__)
 
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Логика команды /start."""
+    """untuk memulai bot /start."""
     if update.effective_chat is not None:
         message: str = (
-            f'Показываю курс рубля специально для тебя, {update.effective_chat.first_name}.'
-            '\n======<b>Доступные команды</b>======\n'
-            '- /start - приветственная информация\n'
-            '- /help - информация о функционале бота\n'
-            '- /courses - курсы всех валют к рублю\n'
-            '- /sub - подписаться на рассылку (с периодичностью в секундах, по выбранным валютам)\n'
-            '- /unsub - отписаться от рассылки'
+            f'Saya menunjukkan nilai tukar rubel khusus untuk Anda, {update.effective_chat.first_name}.'
+            '\n======<b>Perintah yang tersedia</b>======\n'
+            '- /start - untuk memulai bot\n'
+            '- /help - untuk melihat tombol perintah\n'
+            '- /courses - nilai tukar semua mata uang terhadap rubel\n'
+            '- /sub - berlangganan buletin (frekuensi dalam hitungan detik, untuk mata uang yang dipilih)\n'
+            '- /unsub - Berhenti Berlangganan'
         )
 
         await context.bot.send_message(
@@ -24,4 +24,4 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
             text=message, parse_mode='HTML',
         )
     else:
-        logger.warning('Не получен ID чата при запросе /start.')
+        logger.warning('untuk memulai bot /start.')
